@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://db-app:5432/order-auth
+    username: app_db_user
+    password: app_db_user_password
+  jpa:
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.yml
+
+application:
+  security:
+    jwt:
+      secret-key: 8cef11d02ae8a0b8e3a733eaa7d0c50df8e1e12dd97fb96b37dedefce688a779
+      expiration: 86400000 # 1 day
+      refresh-token:
+        expiration: 604800000 # 7 days
+logging:
+  level:
+    root: DEBUG
+    org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer: ERROR
