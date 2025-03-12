@@ -26,8 +26,8 @@ This document outlines the next steps for the Food Delivery API project, categor
       ![current coverage](curr_coverage.png)
 
 * **ISSUE - Integrate Code Coverage and Formatting Validation Plugins:**
-    * Integrate plugins to automatically validate code coverage and enforce consistent code
-      formatting during the build process.
+    * Integrate plugins to automatically validate code coverage, enforce consistent code
+      formatting, and finding vulnerabilities during the build process.
 
 
 * **ISSUE - Develop Unit and Behavior-Driven Tests:**
