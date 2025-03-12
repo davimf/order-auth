@@ -412,4 +412,17 @@ public class ApiIntegrationTest {
         .then()
         .statusCode(HttpStatus.FORBIDDEN.value());
   }
+
+  @Test
+  void shouldNotAuthenticateDueToInvalidUser() {
+    var invalidUserOrPass = "any@email.com";
+
+    given()
+        .contentType(ContentType.JSON)
+        .body(new AuthenticationRequest(invalidUserOrPass, invalidUserOrPass))
+        .when()
+        .post("/v1/auth/authenticate")
+        .then()
+        .statusCode(HttpStatus.FORBIDDEN.value());
+  }
 }
