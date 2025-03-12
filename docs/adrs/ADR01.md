@@ -51,6 +51,22 @@ We have decided to use the following technologies for the MVP:
   the implementation of secure authentication.
 * **Standardization:** JWT is a widely adopted standard, ensuring interoperability and ease of use.
 
+### Gateway and Enhanced Security: Kong API Gateway
+
+* **Centralized Security Management:** Kong simplifies security administration and enforcement
+  through its rich plugin ecosystem, providing a centralized point for managing security policies,
+  including authentication, authorization, and rate limiting.
+* **Rate Limiting Implementation:** Rate limiting will be implemented at the Kong gateway level to
+  protect our APIs from abuse, such as DoS attacks and excessive usage from malicious actors, and
+  ensure fair usage.
+    - Will be configured based on requests per minute, with dynamic adjustments based on real-time
+      traffic patterns and anomaly detection.
+    - Will be configured based on requests per IP, user, or other entity related, providing granular
+      control over usage.
+* **Extensibility and Scalability:** Kong is highly extensible and scalable, ensuring that our
+  security infrastructure can grow with our application, accommodating increasing traffic and
+  complexity.
+
 ## Consequences
 
 ### PostgreSQL (SQL)
@@ -71,10 +87,20 @@ We have decided to use the following technologies for the MVP:
 * **Token Management:** We will need to implement a strategy for managing token expiration and
   revocation.
 
+### Gateway and Enhanced Security: Kong API Gateway
+
+* **Configuration Management:** Kong's setup requires careful planning and version control to
+  prevent vulnerabilities.
+* **Operational Monitoring:** Kong introduces overhead, necessitating robust logging and alerting
+  systems.
+* **Continuous Evaluation:** The alternative cloud native gateways (AWS API Gateway, Azure API
+  Management, and Google Cloud Apigee) will be periodically reviewed for optimal fit, cost, and
+  cloud integration.
+
 ## C4 model
 
-These diagrams represent the current system, excluding cache and OAuth2 integration, which are
-planned for future development beyond the MVP.
+These diagrams represent the current system, excluding cache, OAuth2 integration, and Kong
+integration, all of which are planned for future development beyond the MVP.
 
 * **Model**
   ![model.png](../c4-model/exports/ADR_01/model.png)
